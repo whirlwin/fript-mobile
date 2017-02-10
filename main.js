@@ -4,6 +4,9 @@ import {
     Text,
     View
 } from 'react-native';
+import {
+    Button
+} from 'react-native-elements'
 
 
 export default class Main extends Component {
@@ -22,6 +25,10 @@ export default class Main extends Component {
                     Press Cmd+R to reload,{'\n'}
                     Cmd+D or shake for dev menu
                 </Text>
+                <Button
+                    raised
+                    icon={{name: 'cached'}}
+                    title='RAISED WITH ICON' />
             </View>
         );
     }
