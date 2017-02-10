@@ -1,0 +1,3 @@
+rootProject.name = 'fript_mobile'
+
+include ':app'
