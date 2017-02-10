@@ -13,7 +13,7 @@ export default class Main extends Component {
             <View style={styles.container}>
                 <Text style={styles.welcome}>
                     Welcome to React Native!
-                    foo bar baz!
+                    foo bar baz!2
                 </Text>
                 <Text style={styles.instructions}>
                     To get started, edit index.ios.js
