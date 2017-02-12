@@ -1,11 +1,6 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import Main from './main';
+import AppContainer from './src/AppRootContainer';
 import {
   AppRegistry,
   StyleSheet,
@@ -16,7 +11,7 @@ import {
 export default class fript_mobile extends Component {
   render() {
     return (
-        <Main/>
+        <AppContainer/>
     );
   }
 }

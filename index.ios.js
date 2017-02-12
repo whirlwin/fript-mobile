@@ -3,13 +3,15 @@ import Main from './main';
 import {
     AppRegistry
 } from 'react-native';
+import AppRootContainer from './src/AppRootContainer';
 
 
 export default class FriptApp extends Component {
 
   render() {
     return (
-        <Main/>
+        <AppRootContainer/>
+        //<Main/>
     );
   }
 }
