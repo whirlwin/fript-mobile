@@ -24,6 +24,7 @@ public class MainApplication extends Application implements ReactApplication {
   private static CallbackManager mCallbackManager = CallbackManager.Factory.create();
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -46,13 +47,14 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    FacebookSdk.setApplicationId("612552802237533");
     FacebookSdk.sdkInitialize(getApplicationContext());
     FacebookSdk.setApplicationId("612552802237533");
     // If you want to use AppEventsLogger to log events.
     AppEventsLogger.activateApp(this);
   }
 
-  protected static CallbackManager getCallbackManager() {
+  static CallbackManager getCallbackManager() {
     return mCallbackManager;
   }
 }
