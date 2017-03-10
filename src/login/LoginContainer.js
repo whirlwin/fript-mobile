@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, Text, View, StyleSheet } from 'react-native';
 import { LoginButton, AccessToken } from 'react-native-fbsdk';
-import { Button } from 'react-native-elements';
 
 export default class LoginContainer extends Component {
 
@@ -9,19 +8,28 @@ export default class LoginContainer extends Component {
         return (
             <View style={styles.background}>
                 <LoginButton
-                    readPermissions={[ " public_profile" ]}
-                    onLoginFinished={ (error, result) => {
-                        if (error) {
-                            alert("Kunne ikke logge inn - prøv igjen senere");
-                        } else {
-                            // TODO: Store user permission
-                            alert("Login was successful with permissions: ")
-                        }
-                    }}
-                    onLogoutFinished={() => alert("User logged out2")}
-                    />
+                    publishPermissions={["publish_actions"]}
+                    onLoginFinished={(error, result) => {
+              if (error) {
+                alert("login has error: " + result.error);
+              } else if (result.isCancelled) {
+                alert("login is cancelled.");
+              } else {
+                AccessToken.getCurrentAccessToken().then(
+                  (data) => {
+                    alert(data.accessToken.toString())
+                  }
+                )
+              }
+            }
+          }
+                    onLogoutFinished={() => alert("logout.")}/>
             </View>
         );
+    }
+
+    handleLoginResult() {
+
     }
 }
 

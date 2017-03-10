@@ -1,19 +1,50 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+
 import React, { Component } from 'react';
-import Main from './main';
 import {
-    AppRegistry
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
 } from 'react-native';
-import AppRootContainer from './src/AppRootContainer';
+import Main from './src/Main';
+const FBSDK = require('react-native-fbsdk');
+const {
+    LoginButton,
+    AccessToken
+} = FBSDK;
 
-
-export default class FriptApp extends Component {
-
+export default class fript_mobile extends Component {
   render() {
     return (
-        <AppRootContainer/>
-        //<Main/>
+        <View>
+          <Main/>
+        </View>
     );
   }
 }
 
-AppRegistry.registerComponent('fript_mobile', () => FriptApp);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
+AppRegistry.registerComponent('fript_mobile', () => fript_mobile);

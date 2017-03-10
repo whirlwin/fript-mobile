@@ -1,16 +1,12 @@
 package com.fript_mobile;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
-import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.react.ReactApplication;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -24,7 +20,6 @@ public class MainApplication extends Application implements ReactApplication {
   private static CallbackManager mCallbackManager = CallbackManager.Factory.create();
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -44,17 +39,23 @@ public class MainApplication extends Application implements ReactApplication {
     return mReactNativeHost;
   }
 
+  /*
   @Override
   public void onCreate() {
     super.onCreate();
-    FacebookSdk.setApplicationId("612552802237533");
+    SoLoader.init(this, false);
+  }
+  */
+
+  @Override
+  public void onCreate() {
+    super.onCreate();
     FacebookSdk.sdkInitialize(getApplicationContext());
-    FacebookSdk.setApplicationId("612552802237533");
     // If you want to use AppEventsLogger to log events.
     AppEventsLogger.activateApp(this);
   }
 
-  static CallbackManager getCallbackManager() {
+  protected static CallbackManager getCallbackManager() {
     return mCallbackManager;
   }
 }
