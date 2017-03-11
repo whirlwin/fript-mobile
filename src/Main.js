@@ -6,33 +6,37 @@ import {
 } from 'react-native';
 import LoginContainer from './login/LoginContainer';
 
-
 export default class Main extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.main}>
                 <LoginContainer/>
             </View>
         );
     }
 }
 
+var styles = StyleSheet.create({
+    main: {
+        alignItems: 'center',
+        backgroundColor: '#fffae0',
+        flex: 0.5,
+        flexDirection: 'row',
+        justifyContent: 'center'
+    }
+});
+
+/*
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        flexDirection: 'column'
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
+    loginButton: {
+        flex: 0.5
+    }
+
 });
+
+*/

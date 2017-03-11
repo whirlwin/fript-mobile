@@ -6,41 +6,31 @@ export default class LoginContainer extends Component {
 
     render() {
         return (
-            <View style={styles.background}>
+            <View>
                 <LoginButton
                     publishPermissions={["publish_actions"]}
-                    onLoginFinished={(error, result) => {
-              if (error) {
-                alert("login has error: " + result.error);
-              } else if (result.isCancelled) {
-                alert("login is cancelled.");
-              } else {
-                AccessToken.getCurrentAccessToken().then(
-                  (data) => {
-                    alert(data.accessToken.toString())
-                  }
-                )
-              }
-            }
-          }
+                    onLoginFinished={this.handleLoginResult}
                     onLogoutFinished={() => alert("logout.")}/>
             </View>
         );
     }
 
-    handleLoginResult() {
-
+    handleLoginResult(error, result) {
+        if (error) {
+            alert("login has error: " + result.error);
+        } else if (result.isCancelled) {
+            alert("login is cancelled.");
+        } else {
+            AccessToken.getCurrentAccessToken().then(
+                (data) => {
+                    alert(data.accessToken.toString())
+                }
+            )
+        }
     }
 }
 
 const styles = StyleSheet.create({
-    background: {
-        flex: 1,
-        flexDirection: "row",
-        backgroundColor: "powderblue",
-        alignItems: "center",
-        justifyContent: "center"
-    }
 });
 
 
